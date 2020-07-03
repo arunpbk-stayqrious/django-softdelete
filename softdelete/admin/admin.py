@@ -12,9 +12,9 @@ class SoftDeleteObjectInline(admin.TabularInline):
 
     def __init__(self, parent, site, *args, **kwargs):
         super(SoftDeleteObjectInline, self).__init__(parent, site, *args, **kwargs)
-        if parent.deleted:
-            self.extra = 0
-            self.max_num = 0
+        # if parent.deleted:
+        #     self.extra = 0
+        #     self.max_num = 0
 
     def get_queryset(self, request):
         qs = self.model._default_manager.all_with_deleted()
